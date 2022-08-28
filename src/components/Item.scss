@@ -1,0 +1,28 @@
+.item-container {
+    height: 400px;
+    display:flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: #EAEAEA;
+    border-radius: 8px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    gap: 16px;
+    justify-content: center;
+    
+    @media screen and (max-width: 1023px) and (min-width: 688px) {
+        grid-template-columns: repeat(2, 320px);
+    }
+    @media screen and (max-width: 687px) {
+        grid-template-columns: 320px;
+    }
+  }
+
+.item-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
