@@ -28,16 +28,16 @@ export const Modal = ({item}) => {
         <div id={modalID} className='modal'>
             <div className='modal-container'>
                 <span className="close" onClick={closeModal}>&times;</span>
-                <img id={imagePathModalID} src={item.imagePath} className="App-logo" alt="logo" />
+                <img id={imagePathModalID} src={item.imagePath} alt="logo" />
                 <p id={itemNameModalID}>{item.itemName}</p>
                 <p id={itemPriceModalID}>{item.itemPrice}</p>
                 <div className='modal-footer'>
                     <div className='modal-item-number'>
-                        <button onClick={decreaseNumber}>-</button>
-                        <p id={counterID}>{itemNumber}</p>
-                        <button onClick={increaseNumber}>+</button>
+                        <button className='counter-button' onClick={decreaseNumber}>-</button>
+                        <p className='counter-label' id={counterID}>{itemNumber}</p>
+                        <button className='counter-button' onClick={increaseNumber}>+</button>
                     </div>
-                    <button>Add to cart</button>
+                    <button className='cart-button'>Add to cart</button>
                 </div>
             </div>
         </div>

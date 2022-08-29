@@ -36,22 +36,40 @@
 
   .modal-container {
     width: 400px;
-    height: 400px;
+    height: auto;
     display:flex;
     flex-direction: column;
-    outline: 1px solid black;
     padding: 16px;
     background-color: white;
     margin: 64px auto;
+    border-radius: 8px;
   }
 
   .modal-item-number {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   .modal-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .counter-button {
+    background-color: #EAEAEA;
+    width: 36px;
+    height: 36px;
+  }
+
+  .counter-label {
+    margin: 0 8px;
+  }
+
+  .cart-button {
+    background-color: #EAEAEA;
+    width: 200px;
   }

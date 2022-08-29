@@ -19,7 +19,7 @@ export const Item = ({item}) => {
     return (
     <div>
         <div className='item-container'>
-            <img id={imagePathID} src={item.imagePath} className="App-logo" alt="logo" />
+            <img id={imagePathID} src={item.imagePath} alt={item.itemName} />
             <p id={itemNameID}>{item.itemName}</p>
             <div className='item-footer'>
                 <p id={itemPriceID}>{item.itemPrice}</p>

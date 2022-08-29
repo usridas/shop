@@ -12,7 +12,7 @@
     grid-template-columns: repeat(3, 320px);
     gap: 16px;
     justify-content: center;
-    
+    margin-bottom: 64px;
     @media screen and (max-width: 1023px) and (min-width: 688px) {
         grid-template-columns: repeat(2, 320px);
     }
