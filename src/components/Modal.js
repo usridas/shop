@@ -1,27 +1,71 @@
 import './Modal.scss';
 
-export const Modal = ({item}) => {
+export const Modal = ({item, cartItems}) => {
     let modalID = `${item.itemID}-modal`;
     let counterID = `${item.itemID}-counter`;
     let itemNameModalID = `${item.itemID}-item-name-modal`;
     let itemPriceModalID = `${item.itemID}-item-price-modal`;
     let imagePathModalID = `${item.itemID}-image-path-modal`;
+    let addToCartButtonID = `${item.itemID}-add-to-cart-button`;
+    let addToCartDisabled = true;
+    let itemQuantity = 0;
     const closeModal = () => {
         let modalElement = document.getElementById(modalID);
-        itemNumber = 0;
-        document.getElementById(counterID).innerHTML = itemNumber;
+        itemQuantity = 0;
+        document.getElementById(counterID).innerHTML = itemQuantity;
         modalElement.style.display = 'none';
     };
-    let itemNumber = 0;
     const decreaseNumber = () => {
-        if (itemNumber !== 0)
-        itemNumber--;
-        document.getElementById(counterID).innerHTML = itemNumber;
+        if (itemQuantity !== 0){
+            itemQuantity--;
+            addToCartDisabled = false;
+        }
+        if (itemQuantity === 0) {
+            addToCartDisabled = true;
+        }
+        document.getElementById(addToCartButtonID).disabled = addToCartDisabled;
+        document.getElementById(counterID).innerHTML = itemQuantity;
     }
     const increaseNumber = () => {
-        if (itemNumber < 10)
-        itemNumber++;
-        document.getElementById(counterID).innerHTML = itemNumber;
+        if (itemQuantity < 10) {
+            itemQuantity++;
+        }
+        if (itemQuantity === 0) {
+            addToCartDisabled = true;
+        }
+        else {
+            addToCartDisabled = false;
+        }
+        document.getElementById(addToCartButtonID).disabled = addToCartDisabled;
+        document.getElementById(counterID).innerHTML = itemQuantity;
+    }
+    const addToCartOnClick = () => {
+        if (cartItems.length) {
+            const findIndex = cartItems.findIndex(cartItem => item.itemID === cartItem.itemID);
+            if (findIndex !== -1) {
+                cartItems[findIndex].itemQuantity += itemQuantity;
+            }
+            else {
+                const addItem = {
+                    itemID: item.itemID,
+                    itemPrice: item.itemPrice,
+                    itemQuantity: itemQuantity
+                };
+                cartItems.push(addItem);
+            }
+        }
+        else {
+            const addItem = {
+                itemID: item.itemID,
+                itemPrice: item.itemPrice,
+                itemQuantity: itemQuantity
+            };
+            cartItems.push(addItem);
+        }
+        itemQuantity = 0;
+        document.getElementById(counterID).innerHTML = itemQuantity;
+        addToCartDisabled = true;
+        document.getElementById(addToCartButtonID).disabled = addToCartDisabled;
     }
 
     return (
@@ -32,12 +76,12 @@ export const Modal = ({item}) => {
                 <p id={itemNameModalID}>{item.itemName}</p>
                 <p id={itemPriceModalID}>{item.itemPrice}</p>
                 <div className='modal-footer'>
-                    <div className='modal-item-number'>
+                    <div className='counter-container'>
                         <button className='counter-button' onClick={decreaseNumber}>-</button>
-                        <p className='counter-label' id={counterID}>{itemNumber}</p>
+                        <p className='counter-label' id={counterID}>{itemQuantity}</p>
                         <button className='counter-button' onClick={increaseNumber}>+</button>
                     </div>
-                    <button className='cart-button'>Add to cart</button>
+                    <button id={addToCartButtonID} className='cart-button' onClick={addToCartOnClick}>Add to cart</button>
                 </div>
             </div>
         </div>

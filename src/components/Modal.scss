@@ -45,7 +45,7 @@
     border-radius: 8px;
   }
 
-  .modal-item-number {
+  .counter-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -72,4 +72,9 @@
   .cart-button {
     background-color: #EAEAEA;
     width: 200px;
+  }
+
+  .cart-button:disabled {
+    background-color: #EAEAEA;
+    cursor: auto;
   }

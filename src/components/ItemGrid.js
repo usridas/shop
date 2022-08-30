@@ -2,9 +2,9 @@ import './Item.scss';
 import { Item } from './Item'
 import { itemList } from '../itemList';
 
-export const ItemGrid = () => {
+export const ItemGrid = ({cartItems}) => {
     const grid = itemList.map((item)=>{
-        return <Item item={item} key={item.itemID}/>
+        return <Item item={item} key={item.itemID} cartItems={cartItems}/>
     })
     return (
         <div className='item-grid'>
