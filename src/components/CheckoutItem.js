@@ -1,19 +1,41 @@
 import './CheckoutItem.scss';
 
-export const CheckoutItem = ({cartItem}) => {
+export const CheckoutItem = ({cartItem, cartItems, setCartItems}) => {
+    const itemPriceID = `${cartItem.itemID}-checkout-counter`;
+    const counterID = `${cartItem.itemID}-checkout-price-counter`;
     let itemQuantity = cartItem.itemQuantity;
-    const counterID = `${cartItem.itemID}-checkout-counter`;
+    const findIndex = cartItems.findIndex(item => cartItem.itemID === item.itemID);
+    let totalItemCost = cartItem.itemPrice * cartItem.itemQuantity;
+    let totalCost = 0;
     const decreaseNumber = () => {
         if (itemQuantity !== 0){
             itemQuantity--;
-        }
-        if (itemQuantity === 0) {
+            cartItems[findIndex].itemQuantity = itemQuantity;
+            setCartItems(cartItems);
+            totalItemCost = cartItem.itemPrice * cartItem.itemQuantity;
+            document.getElementById(itemPriceID).innerHTML = `$${totalItemCost}`;
+            totalCost = 0;
+            cartItems.forEach(item => {
+                totalCost = totalCost + (item.itemPrice * item.itemQuantity);
+            });
+            document.getElementById('checkout-total-price').innerHTML = `$${totalCost}`;
+            console.log("Item decrease: ", cartItems);
         }
         document.getElementById(counterID).innerHTML = itemQuantity;
     }
     const increaseNumber = () => {
         if (itemQuantity < 10) {
             itemQuantity++;
+            cartItems[findIndex].itemQuantity = itemQuantity;
+            setCartItems(cartItems);
+            totalItemCost = cartItem.itemPrice * cartItem.itemQuantity;
+            document.getElementById(itemPriceID).innerHTML = `$${totalItemCost}`;
+            totalCost = 0;
+            cartItems.forEach(item => {
+                totalCost = totalCost + (item.itemPrice * item.itemQuantity);
+            });
+            document.getElementById('checkout-total-price').innerHTML = `$${totalCost}`;
+            console.log("Item increase: ", cartItems);
         }
         document.getElementById(counterID).innerHTML = itemQuantity;
     }
@@ -21,7 +43,7 @@ export const CheckoutItem = ({cartItem}) => {
         <div className='checkout-item-container'>
             <div className='checkout-item-title'>
                 <p>{cartItem.itemName}</p>
-                <p>${cartItem.itemPrice * cartItem.itemQuantity}</p>
+                <p id={itemPriceID}>${totalItemCost}</p>
             </div>
             <div className='checkout-quantity-container'>
                 <p className='checkout-quantity-label'>Quantity: </p>

@@ -4,18 +4,16 @@ import { Checkout } from './pages/Checkout';
 import { Home } from './pages/Home';
 
 function App() {
-  let cartItemsArray = [];
-  const [cartItems, setCartItems] = useState(cartItemsArray);
+  const [cartItems, setCartItems] = useState([]);
   const [tab, setTab] = useState('Home');
   if(tab === 'Home') {
     return (
-      <Home setTab={setTab} cartItems={cartItemsArray} setCartItems={setCartItems}/>
+      <Home setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
     );
   }
   if(tab === 'Checkout') {
-    console.log("app cart: ", cartItems)
     return (
-      <Checkout cartItems={cartItems}/>
+      <Checkout setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
     )
   }
 }
