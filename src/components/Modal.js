@@ -1,12 +1,12 @@
 import './Modal.scss';
 
-export const Modal = ({item, cartItems}) => {
-    let modalID = `${item.itemID}-modal`;
-    let counterID = `${item.itemID}-counter`;
-    let itemNameModalID = `${item.itemID}-item-name-modal`;
-    let itemPriceModalID = `${item.itemID}-item-price-modal`;
-    let imagePathModalID = `${item.itemID}-image-path-modal`;
-    let addToCartButtonID = `${item.itemID}-add-to-cart-button`;
+export const Modal = ({item, cartItems, setCartItems}) => {
+    const modalID = `${item.itemID}-modal`;
+    const counterID = `${item.itemID}-counter`;
+    const itemNameModalID = `${item.itemID}-item-name-modal`;
+    const itemPriceModalID = `${item.itemID}-item-price-modal`;
+    const imagePathModalID = `${item.itemID}-image-path-modal`;
+    const addToCartButtonID = `${item.itemID}-add-to-cart-button`;
     let addToCartDisabled = true;
     let itemQuantity = 0;
     const closeModal = () => {
@@ -48,6 +48,7 @@ export const Modal = ({item, cartItems}) => {
             else {
                 const addItem = {
                     itemID: item.itemID,
+                    itemName: item.itemName,
                     itemPrice: item.itemPrice,
                     itemQuantity: itemQuantity
                 };
@@ -57,15 +58,19 @@ export const Modal = ({item, cartItems}) => {
         else {
             const addItem = {
                 itemID: item.itemID,
+                itemName: item.itemName,
                 itemPrice: item.itemPrice,
                 itemQuantity: itemQuantity
             };
             cartItems.push(addItem);
         }
+        setCartItems(cartItems);
         itemQuantity = 0;
         document.getElementById(counterID).innerHTML = itemQuantity;
         addToCartDisabled = true;
         document.getElementById(addToCartButtonID).disabled = addToCartDisabled;
+        let modalElement = document.getElementById(modalID);
+        modalElement.style.display = 'none';
     }
 
     return (
@@ -74,7 +79,7 @@ export const Modal = ({item, cartItems}) => {
                 <span className="close" onClick={closeModal}>&times;</span>
                 <img id={imagePathModalID} src={item.imagePath} alt="logo" />
                 <p id={itemNameModalID}>{item.itemName}</p>
-                <p id={itemPriceModalID}>{item.itemPrice}</p>
+                <p id={itemPriceModalID}>${item.itemPrice}</p>
                 <div className='modal-footer'>
                     <div className='counter-container'>
                         <button className='counter-button' onClick={decreaseNumber}>-</button>

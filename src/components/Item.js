@@ -1,7 +1,7 @@
 import './Item.scss';
 import { Modal } from './Modal';
 
-export const Item = ({item, cartItems}) => {
+export const Item = ({item, cartItems, setCartItems}) => {
     let modalID = `${item.itemID}-modal`;
     let itemNameID = `${item.itemID}-item-name`;
     let itemPriceID = `${item.itemID}-item-price`;
@@ -24,11 +24,11 @@ export const Item = ({item, cartItems}) => {
             <img id={imagePathID} src={item.imagePath} alt={item.itemName} className='image-container' />
             <p id={itemNameID}>{item.itemName}</p>
             <div className='item-footer'>
-                <p id={itemPriceID}>{item.itemPrice}</p>
+                <p id={itemPriceID}>${item.itemPrice}</p>
                 <button onClick={setModal}>Buy</button>
             </div>
         </div>
-        <Modal item={item} cartItems={cartItems}/>
+        <Modal item={item} cartItems={cartItems} setCartItems={setCartItems}/>
     </div>
     )
 }
