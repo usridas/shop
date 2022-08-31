@@ -21,10 +21,12 @@
   }
   
   .close {
+    position: absolute;
     color: #aaa;
     margin-left: auto;
     font-size: 28px;
     font-weight: bold;
+    right: 24px;
   }
   
   .close:hover,
@@ -35,6 +37,7 @@
   }
 
   .modal-container {
+    position: relative;
     width: 400px;
     height: auto;
     display:flex;

@@ -1,13 +1,15 @@
+.home-body {
+  min-width: 256px;
+  margin: 0 32px;
+}
+
 .checkout-button {
     margin-left: auto;
     background-color: #EAEAEA;
 }
   
 .checkout-container {
-    display: flex;
-    max-width: 992px;
-    margin: 64px auto;
-    @media screen and (max-width: 1023px) and (min-width: 688px) {
-      max-width: 656px;
-    }
+  display: flex;
+  max-width: 992px;
+  margin: 64px auto;
 }

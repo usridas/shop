@@ -1,3 +1,8 @@
+.checkout-body {
+    min-width: 256px;
+    margin: 0 32px;
+}
+
 .checkout-horizontal-line {
     max-width: 992px;
 }
@@ -20,7 +25,16 @@
     display: flex;
     max-width: 992px;
     margin: 64px auto;
-    @media screen and (max-width: 1023px) and (min-width: 688px) {
-      max-width: 656px;
-    }
+}
+
+.payment-button-container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 992px;
+}
+
+.payment-button {
+    margin-left: auto;
+    width:fit-content;
+    background-color: #EAEAEA;
 }

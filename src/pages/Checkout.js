@@ -14,13 +14,16 @@ export const Checkout = ({setTab, cartItems, setCartItems}) => {
         return <CheckoutItem cartItem={item} cartItems={cartItems} setCartItems={setCartItems}/>
     })
     return (
-        <div>
+        <div className='checkout-body'>
             <div className='home-container' onClick={homeOnClick}><button className='home-button'>Go back</button></div>
             {checkoutItems}
             <hr className='checkout-horizontal-line'/>
             <div className='checkout-total-container'>
                 <p>Order total</p>
                 <p id={totalPriceID}>${totalPrice}</p>
+            </div>
+            <div className='payment-button-container'>
+                <button className='payment-button'>Proceed to payment</button>
             </div>
         </div>
     )
