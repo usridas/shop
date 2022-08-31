@@ -1,6 +1,6 @@
 .item-container {
     height: auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     padding: 16px;
     background-color: #EAEAEA;
@@ -9,15 +9,15 @@
 
 .item-grid {
     display: grid;
-    grid-template-columns: repeat(3, 320px);
+    grid-template-columns: repeat(3, 288px);
     gap: 16px;
     justify-content: center;
     margin-bottom: 64px;
-    @media screen and (max-width: 1023px) and (min-width: 688px) {
-        grid-template-columns: repeat(2, 320px);
+    @media screen and (max-width: 927px) and (min-width: 624px) {
+        grid-template-columns: repeat(2, 288px);
     }
-    @media screen and (max-width: 687px) {
-        grid-template-columns: 320px;
+    @media screen and (max-width: 623px) {
+        grid-template-columns: 288px;
     }
   }
 

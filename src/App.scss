@@ -36,17 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.checkout-button {
-  margin-left: auto;
-  background-color: #EAEAEA;
-}
-
-.checkout-container {
-  display: flex;
-  max-width: 992px;
-  margin: 64px auto;
-  @media screen and (max-width: 1023px) and (min-width: 688px) {
-    max-width: 656px;
-  }
-}
