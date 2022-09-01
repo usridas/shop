@@ -1,3 +1,5 @@
+@import '../index.scss';
+
 .modal {
     display: none;
     position: fixed; /* Stay in place */
@@ -63,6 +65,7 @@
   }
 
   .counter-button {
+    @extend .extend-button;
     background-color: #EAEAEA;
     width: 36px;
     height: 36px;
@@ -73,11 +76,27 @@
   }
 
   .cart-button {
+    @extend .extend-button;
     background-color: #EAEAEA;
-    width: 200px;
+    width: 160px;
+    &:disabled {
+      background-color: #EAEAEA;
+      cursor: auto;
+    }
+    &:hover:enabled {
+      background-color: #C0C0C0;
+      cursor: pointer;
+    }
   }
 
-  .cart-button:disabled {
-    background-color: #EAEAEA;
-    cursor: auto;
+  .modal-image {
+    margin-bottom: 24px;
+  }
+
+  .modal-item-name {
+    margin-bottom: 12px;
+  }
+
+  .modal-item-price {
+    margin-bottom: 8px;
   }

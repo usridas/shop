@@ -1,10 +1,12 @@
+@import '../index.scss';
+
 .checkout-body {
     min-width: 288px;
     margin: 0 16px;
 }
 
 .checkout-horizontal-line {
-    max-width: 992px;
+    max-width: 912px;
 }
 
 .checkout-total-container {
@@ -12,29 +14,57 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 16px;
-    margin: 0 auto;
-    max-width: 960px;
+    margin: 16px auto;
+    max-width: 880px;
 }
 
 .home-button {
+    @extend .extend-button;
     margin-left: auto;
     background-color: #EAEAEA;
 }
   
 .home-container {
     display: flex;
-    max-width: 992px;
+    max-width: 912px;
     margin: 64px auto;
 }
 
 .payment-button-container {
     display: flex;
     margin: 0 auto;
-    max-width: 992px;
+    max-width: 912px;
 }
 
 .payment-button {
+    @extend .extend-button;
     margin-left: auto;
-    width:fit-content;
     background-color: #EAEAEA;
 }
+
+.home-icon-container {
+    display: flex;
+    margin: 64px auto;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .home-icon-bubble {
+    display: flex;
+    margin-left: auto;
+    align-content: center;
+    background-color: #EAEAEA;
+    box-shadow: 0px 2px 5px #C0C0C0;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    &:hover {
+      background-color: #C0C0C0;
+      cursor: pointer;
+    }
+  }
+  
+  .home-icon {
+    padding: 25%;
+  }

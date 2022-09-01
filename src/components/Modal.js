@@ -77,9 +77,9 @@ export const Modal = ({item, cartItems, setCartItems}) => {
         <div id={modalID} className='modal'>
             <div className='modal-container'>
                 <span className="close" onClick={closeModal}>&times;</span>
-                <img id={imagePathModalID} src={item.imagePath} alt="logo" />
-                <p id={itemNameModalID}>{item.itemName}</p>
-                <p id={itemPriceModalID}>${item.itemPrice}</p>
+                <img id={imagePathModalID} className='modal-image' src={item.imagePath} alt="logo" />
+                <p id={itemNameModalID} className='modal-item-name'>{item.itemName}</p>
+                <p id={itemPriceModalID} className='modal-item-price'>${item.itemPrice.toFixed(2)}</p>
                 <div className='modal-footer'>
                     <div className='counter-container'>
                         <button className='counter-button' onClick={decreaseNumber}>-</button>

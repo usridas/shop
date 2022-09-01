@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+  min-width: 320px;
+  position: absolute;
+  top: 70px;
+  z-index: -1;
+  width: 100%;
+  text-align: center;
+  font-family: 'RobotoBlack';
+  font-size: x-large;
+}

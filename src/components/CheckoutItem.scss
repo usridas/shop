@@ -1,8 +1,10 @@
+@import '../index.scss';
+
 .checkout-item-container {
     background-color: #EAEAEA;
     border-radius: 8px;
     padding: 16px;
-    max-width: 960px;
+    max-width: 880px;
     margin: 0 auto;
     &:not(:last-child) {
         margin-bottom: 16px;
@@ -16,6 +18,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 12px;
 }
 
 .checkout-counter-container {
@@ -25,6 +28,7 @@
 }
 
 .checkout-counter-button {
+    @extend .extend-button;
     background-color: #FFFFFF;
     width: 36px;
     height: 36px;
@@ -40,5 +44,6 @@
 }
 
 .checkout-quantity-label {
-    margin-right: 32px;
+    align-self: center;
+    margin-right: 16px;
 }

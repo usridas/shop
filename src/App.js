@@ -8,12 +8,18 @@ function App() {
   const [tab, setTab] = useState('Home');
   if(tab === 'Home') {
     return (
-      <Home setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
+      <div>
+        <p className='title'>uma doodles</p>
+        <Home setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
+      </div>
     );
   }
   if(tab === 'Checkout') {
     return (
-      <Checkout setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
+      <div>
+        <p className='title'>uma doodles</p>
+        <Checkout setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
+      </div>
     )
   }
 }

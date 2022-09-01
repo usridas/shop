@@ -1,3 +1,5 @@
+@import '../index.scss';
+
 .item-container {
     height: auto;
     display: flex;
@@ -10,13 +12,14 @@
 .item-grid {
     display: grid;
     grid-template-columns: repeat(3, 288px);
-    gap: 16px;
+    gap: 24px;
     justify-content: center;
     margin-bottom: 64px;
-    @media screen and (max-width: 927px) and (min-width: 624px) {
+    @media screen and (max-width: 943px) and (min-width: 632px) {
         grid-template-columns: repeat(2, 288px);
+        gap: 16px;
     }
-    @media screen and (max-width: 623px) {
+    @media screen and (max-width: 631px) {
         grid-template-columns: 288px;
     }
   }
@@ -28,5 +31,19 @@
 }
 
 .image-container {
-    margin-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.item-price {
+    align-self: center;
+}
+
+.item-name {
+    margin-bottom: 4px;
+}
+
+.item-button {
+    @extend .extend-button;
+    background-color: #FFFFFF;
+    width: 80px;
 }

@@ -13,13 +13,12 @@ export const CheckoutItem = ({cartItem, cartItems, setCartItems}) => {
             cartItems[findIndex].itemQuantity = itemQuantity;
             setCartItems(cartItems);
             totalItemCost = cartItem.itemPrice * cartItem.itemQuantity;
-            document.getElementById(itemPriceID).innerHTML = `$${totalItemCost}`;
+            document.getElementById(itemPriceID).innerHTML = `$${totalItemCost.toFixed(2)}`;
             totalCost = 0;
             cartItems.forEach(item => {
                 totalCost = totalCost + (item.itemPrice * item.itemQuantity);
             });
-            document.getElementById('checkout-total-price').innerHTML = `$${totalCost}`;
-            console.log("Item decrease: ", cartItems);
+            document.getElementById('checkout-total-price').innerHTML = `$${totalCost.toFixed(2)}`;
         }
         document.getElementById(counterID).innerHTML = itemQuantity;
     }
@@ -29,13 +28,12 @@ export const CheckoutItem = ({cartItem, cartItems, setCartItems}) => {
             cartItems[findIndex].itemQuantity = itemQuantity;
             setCartItems(cartItems);
             totalItemCost = cartItem.itemPrice * cartItem.itemQuantity;
-            document.getElementById(itemPriceID).innerHTML = `$${totalItemCost}`;
+            document.getElementById(itemPriceID).innerHTML = `$${totalItemCost.toFixed(2)}`;
             totalCost = 0;
             cartItems.forEach(item => {
                 totalCost = totalCost + (item.itemPrice * item.itemQuantity);
             });
-            document.getElementById('checkout-total-price').innerHTML = `$${totalCost}`;
-            console.log("Item increase: ", cartItems);
+            document.getElementById('checkout-total-price').innerHTML = `$${totalCost.toFixed(2)}`;
         }
         document.getElementById(counterID).innerHTML = itemQuantity;
     }
@@ -43,7 +41,7 @@ export const CheckoutItem = ({cartItem, cartItems, setCartItems}) => {
         <div className='checkout-item-container'>
             <div className='checkout-item-title'>
                 <p>{cartItem.itemName}</p>
-                <p id={itemPriceID}>${totalItemCost}</p>
+                <p id={itemPriceID}>${totalItemCost.toFixed(2)}</p>
             </div>
             <div className='checkout-quantity-container'>
                 <p className='checkout-quantity-label'>Quantity: </p>

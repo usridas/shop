@@ -13,7 +13,7 @@ export const Item = ({item, cartItems, setCartItems}) => {
     const setModal = () => {
         let modalElement = document.getElementById(modalID);
         document.getElementById(itemNameModalID).innerHTML = item.itemName;
-        document.getElementById(itemPriceModalID).innerHTML = item.itemPrice;
+        document.getElementById(itemPriceModalID).innerHTML = `$${item.itemPrice.toFixed(2)}`;
         document.getElementById(imagePathModalID).innerHTML = item.imagePath;
         document.getElementById(addToCartButtonID).disabled = true;
         modalElement.style.display = 'block';
@@ -22,10 +22,10 @@ export const Item = ({item, cartItems, setCartItems}) => {
     <div>
         <div className='item-container'>
             <img id={imagePathID} src={item.imagePath} alt={item.itemName} className='image-container' />
-            <p id={itemNameID}>{item.itemName}</p>
+            <p id={itemNameID} className='item-name'>{item.itemName}</p>
             <div className='item-footer'>
-                <p id={itemPriceID}>${item.itemPrice}</p>
-                <button onClick={setModal}>Buy</button>
+                <p id={itemPriceID} className='item-price'>${item.itemPrice.toFixed(2)}</p>
+                <button className='item-button' onClick={setModal}>Buy</button>
             </div>
         </div>
         <Modal item={item} cartItems={cartItems} setCartItems={setCartItems}/>
