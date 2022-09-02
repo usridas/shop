@@ -22,7 +22,10 @@ code {
   padding: 8px 16px;
   align-items: center;
   box-shadow: 0px 2px 5px #C0C0C0;
-  &:hover {
+  @media screen and (max-width: 631px) {
+    height: 48px;
+  }
+  &:hover:enabled {
     background-color: #C0C0C0;
     cursor: pointer;
   }

@@ -44,10 +44,13 @@
     height: auto;
     display:flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 16px 16px 24px 16px;
     background-color: white;
     margin: 64px auto;
     border-radius: 8px;
+    @media screen and (max-width: 631px) {
+      width: 288px;
+    }
   }
 
   .counter-container {
@@ -69,16 +72,26 @@
     background-color: #EAEAEA;
     width: 36px;
     height: 36px;
+    @media screen and (max-width: 631px) {
+      width: 48px;
+      height: 48px;
+    }
   }
 
   .counter-label {
     margin: 0 8px;
+    @media screen and (max-width: 631px) {
+      margin: 0 16px;
+    }
   }
 
   .cart-button {
     @extend .extend-button;
     background-color: #EAEAEA;
     width: 160px;
+    @media screen and (max-width: 631px) {
+      width: auto;
+    }
     &:disabled {
       background-color: #EAEAEA;
       cursor: auto;
@@ -91,12 +104,21 @@
 
   .modal-image {
     margin-bottom: 24px;
+    @media screen and (max-width: 631px) {
+      margin-bottom: 28px;
+    }
   }
 
   .modal-item-name {
     margin-bottom: 12px;
+    @media screen and (max-width: 631px) {
+      margin-bottom: 16px;
+    }
   }
 
   .modal-item-price {
     margin-bottom: 8px;
+    @media screen and (max-width: 631px) {
+      margin-bottom: 16px;
+    }
   }

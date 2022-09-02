@@ -1,6 +1,6 @@
 import './CheckoutItem.scss';
 
-export const CheckoutItem = ({cartItem, cartItems, setCartItems}) => {
+export const CheckoutItem = ({cartItem, cartItems, setCartItems, setCheckoutDisabled}) => {
     const itemPriceID = `${cartItem.itemID}-checkout-counter`;
     const counterID = `${cartItem.itemID}-checkout-price-counter`;
     let itemQuantity = cartItem.itemQuantity;
@@ -21,6 +21,14 @@ export const CheckoutItem = ({cartItem, cartItems, setCartItems}) => {
             document.getElementById('checkout-total-price').innerHTML = `$${totalCost.toFixed(2)}`;
         }
         document.getElementById(counterID).innerHTML = itemQuantity;
+        let allItemsAreZero = cartItems.every(item => {
+            if (item.itemQuantity !== 0)
+            {return false;}
+            else return true;
+        })
+        if (allItemsAreZero) {
+            setCheckoutDisabled(true);
+        }
     }
     const increaseNumber = () => {
         if (itemQuantity < 10) {

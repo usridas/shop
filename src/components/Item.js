@@ -1,7 +1,7 @@
 import './Item.scss';
 import { Modal } from './Modal';
 
-export const Item = ({item, cartItems, setCartItems}) => {
+export const Item = ({item, cartItems, setCartItems, setCheckoutDisabled}) => {
     let modalID = `${item.itemID}-modal`;
     let itemNameID = `${item.itemID}-item-name`;
     let itemPriceID = `${item.itemID}-item-price`;
@@ -28,7 +28,7 @@ export const Item = ({item, cartItems, setCartItems}) => {
                 <button className='item-button' onClick={setModal}>Buy</button>
             </div>
         </div>
-        <Modal item={item} cartItems={cartItems} setCartItems={setCartItems}/>
+        <Modal item={item} cartItems={cartItems} setCartItems={setCartItems} setCheckoutDisabled={setCheckoutDisabled}/>
     </div>
     )
 }

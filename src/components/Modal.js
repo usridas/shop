@@ -1,6 +1,6 @@
 import './Modal.scss';
 
-export const Modal = ({item, cartItems, setCartItems}) => {
+export const Modal = ({item, cartItems, setCartItems, setCheckoutDisabled}) => {
     const modalID = `${item.itemID}-modal`;
     const counterID = `${item.itemID}-counter`;
     const itemNameModalID = `${item.itemID}-item-name-modal`;
@@ -64,11 +64,10 @@ export const Modal = ({item, cartItems, setCartItems}) => {
             };
             cartItems.push(addItem);
         }
+        setCheckoutDisabled(false);
         setCartItems(cartItems);
         itemQuantity = 0;
         document.getElementById(counterID).innerHTML = itemQuantity;
-        addToCartDisabled = true;
-        document.getElementById(addToCartButtonID).disabled = addToCartDisabled;
         let modalElement = document.getElementById(modalID);
         modalElement.style.display = 'none';
     }

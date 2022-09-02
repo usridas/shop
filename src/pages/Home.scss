@@ -22,7 +22,7 @@
 
 .checkout-icon-container {
   display: flex;
-  margin: 64px auto;
+  margin: 60px auto;
   width: 100%;
   background-color: transparent;
   border: none;
@@ -32,17 +32,17 @@
   display: flex;
   margin-left: auto;
   align-content: center;
-  background-color: #EAEAEA;
   box-shadow: 0px 2px 5px #C0C0C0;
+  border: none;
   border-radius: 50%;
   width: 48px;
   height: 48px;
-  &:hover {
+  &:hover:enabled {
     background-color: #C0C0C0;
     cursor: pointer;
   }
 }
 
 .checkout-icon {
-  padding: 25%;
+  padding: 30% 15%;
 }

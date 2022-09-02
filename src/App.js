@@ -5,12 +5,13 @@ import { Home } from './pages/Home';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [checkoutDisabled, setCheckoutDisabled] = useState(true);
   const [tab, setTab] = useState('Home');
   if(tab === 'Home') {
     return (
       <div>
         <p className='title'>uma doodles</p>
-        <Home setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
+        <Home setTab={setTab} cartItems={cartItems} setCartItems={setCartItems} checkoutDisabled={checkoutDisabled} setCheckoutDisabled={setCheckoutDisabled}/>
       </div>
     );
   }
@@ -18,7 +19,7 @@ function App() {
     return (
       <div>
         <p className='title'>uma doodles</p>
-        <Checkout setTab={setTab} cartItems={cartItems} setCartItems={setCartItems}/>
+        <Checkout setTab={setTab} cartItems={cartItems} setCartItems={setCartItems} setCheckoutDisabled={setCheckoutDisabled}/>
       </div>
     )
   }

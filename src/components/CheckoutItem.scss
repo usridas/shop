@@ -3,7 +3,7 @@
 .checkout-item-container {
     background-color: #EAEAEA;
     border-radius: 8px;
-    padding: 16px;
+    padding:  24px 16px;
     max-width: 880px;
     margin: 0 auto;
     &:not(:last-child) {
@@ -19,6 +19,9 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 12px;
+    @media screen and (max-width: 631px) {
+        margin-bottom: 24px;
+    }
 }
 
 .checkout-counter-container {
@@ -32,10 +35,17 @@
     background-color: #FFFFFF;
     width: 36px;
     height: 36px;
+    @media screen and (max-width: 631px) {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 .checkout-counter-label {
     margin: 0 8px;
+    @media screen and (max-width: 631px) {
+        margin: 0 16px;
+    }
 }
 
 .checkout-quantity-container {
