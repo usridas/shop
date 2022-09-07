@@ -23,4 +23,23 @@ export const itemList = [
         itemName: 'Kiwi pot',
         itemPrice: 20.00
     },
-]
+];
+
+export const maxItemList = [
+    {
+        itemID: 'watermelon_pot',
+        maxQuantity: 10,
+    },
+    {
+        itemID: 'lemon_pot',
+        maxQuantity: 10,
+    },
+    {
+        itemID: 'fig_pot',
+        maxQuantity: 10,
+    },
+    {
+        itemID: 'kiwi_pot',
+        maxQuantity: 10,
+    },
+];
